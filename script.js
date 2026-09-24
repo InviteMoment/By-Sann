@@ -377,38 +377,8 @@ async function openInvitation() {
     const nav = $("bottomNav");
 
     /*
-       PENTING:
-       Mainkan muzik dahulu ketika masih dalam
-       user click.
-    */
-    try {
-        setMusicSource();
-
-        music.muted = false;
-        music.volume = 1;
-
-        await music.play();
-
-        musicPlaying = true;
-
-        if (musicBtn) {
-            musicBtn.classList.add("playing");
-        }
-
-    } catch (error) {
-
-        console.warn(
-            "Music gagal dimainkan:",
-            error
-        );
-
-        musicPlaying = false;
-    }
-
-
-    /*
-       Selepas cuba mainkan muzik,
-       baru buka website.
+       BUKA WEBSITE TERUS.
+       Jangan tunggu music.play().
     */
 
     if (cover) {
@@ -422,8 +392,55 @@ async function openInvitation() {
     document.body.style.overflowX = "hidden";
 
     revealSections();
-}
 
+
+    /*
+       Cuba mainkan muzik selepas website dibuka.
+       Kalau muzik gagal, website tetap berjalan.
+    */
+
+    try {
+
+        setMusicSource();
+
+        music.muted = false;
+        music.volume = 1;
+
+        const playPromise = music.play();
+
+        if (playPromise !== undefined) {
+
+            playPromise
+                .then(() => {
+
+                    musicPlaying = true;
+
+                    if (musicBtn) {
+                        musicBtn.classList.add("playing");
+                    }
+
+                })
+                .catch((error) => {
+
+                    console.warn(
+                        "Music gagal dimainkan:",
+                        error
+                    );
+
+                    musicPlaying = false;
+                });
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "Music error:",
+            error
+        );
+
+        musicPlaying = false;
+    }
+}ions();
 
 /* =========================================================
    COUNTDOWN
