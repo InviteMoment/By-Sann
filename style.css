@@ -1,0 +1,1347 @@
+/* =========================================================
+   BY-SANN WEDDING INVITATION
+   STYLE.CSS - CLEAN FINAL
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    overscroll-behavior-x: none;
+
+    /* PINCH ZOOM DIBENARKAN */
+    touch-action: auto !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background: #071a3b;
+    color: #102d5a;
+
+    font-family: Arial, sans-serif;
+
+    overflow-x: hidden;
+
+    /* PINCH ZOOM DIBENARKAN */
+    touch-action: auto !important;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   COVER
+========================================================= */
+
+#cover {
+    position: fixed;
+    inset: 0;
+
+    z-index: 5000;
+
+    background: #071a3b;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        opacity .6s ease,
+        visibility .6s ease;
+}
+
+#cover.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#coverOpenBtn {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    background: transparent;
+}
+
+#envelope {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+#mainContent,
+#website {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+
+    overflow-x: hidden;
+}
+
+.page {
+    position: relative;
+
+    width: 100%;
+    max-width: 560px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+}
+
+.page > img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   FADE
+========================================================= */
+
+.fade-section {
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+#countdown {
+    position: relative;
+}
+
+.countdownOverlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.timeCard {
+    position: absolute;
+
+    width: 27%;
+    height: 19%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+
+    color: #0b3470;
+
+    text-align: center;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+/* KEDUDUKAN COUNTDOWN */
+
+.timeCard:nth-child(1) {
+    left: 23.5%;
+    top: 31.5%;
+}
+
+.timeCard:nth-child(2) {
+    left: 49.5%;
+    top: 31.5%;
+}
+
+.timeCard:nth-child(3) {
+    left: 23.5%;
+    top: 58.5%;
+}
+
+.timeCard:nth-child(4) {
+    left: 49.5%;
+    top: 58.5%;
+}
+
+
+/* NOMBOR */
+
+.timeCard span,
+.timeCard strong {
+    display: block;
+
+    margin-top: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(25px, 7.5vw, 42px);
+
+    font-weight: 700;
+
+    line-height: .95;
+
+    color: #07336e;
+
+    text-shadow: none;
+}
+
+
+/* LABEL */
+
+.timeCard small {
+    display: block;
+
+    margin-top: 4px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(7px, 2vw, 12px);
+
+    font-weight: 700;
+
+    letter-spacing: .12em;
+
+    line-height: 1;
+
+    color: #07336e;
+}
+
+
+/* =========================================================
+   GENERAL OVERLAY
+========================================================= */
+
+.sectionOverlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 20;
+
+    padding: 25% 8% 10%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+}
+
+.sectionOverlay::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   RSVP
+   5 KOTAK DALAM SATU PAGE
+========================================================= */
+
+#page7 {
+    position: relative;
+}
+
+#rsvpList {
+    position: absolute;
+
+    left: 0;
+    top: 19%;
+
+    width: 100%;
+    height: 75%;
+
+    z-index: 30;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    padding:
+        0 8% 8px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+}
+
+#rsvpList::-webkit-scrollbar {
+    display: none;
+}
+
+.rsvpCard {
+    width: 100%;
+
+    /*
+       5 kad + 4 gap
+    */
+    flex:
+        0 0 calc((100% - 28px) / 5);
+
+    min-height: 0;
+
+    padding:
+        8px 14px;
+
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,.95);
+
+    border:
+        1px solid
+        rgba(190,150,65,.75);
+
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,.09);
+
+    color: #173d72;
+
+    overflow: hidden;
+}
+
+.rsvpName {
+    font-size: 15px;
+
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.rsvpInfo {
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    line-height: 1.15;
+}
+
+
+/* =========================================================
+   MOMEN
+   4 GAMBAR:
+   2 ATAS + 2 BAWAH
+========================================================= */
+
+#page8 {
+    position: relative;
+}
+
+#momentGallery {
+    position: absolute;
+
+    left: 7%;
+    top: 24%;
+
+    width: 86%;
+    height: 64%;
+
+    z-index: 30;
+
+    overflow: hidden;
+
+    /*
+       Swipe kiri/kanan.
+       Pinch zoom global masih dibenarkan.
+    */
+    touch-action: pan-y;
+}
+
+.momentTrack {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    transition:
+        transform .35s ease;
+
+    will-change: transform;
+}
+
+.momentSlide {
+    flex:
+        0 0 100%;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    grid-template-rows:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+}
+
+.momentCard {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        rgba(255,255,255,.96);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,.10);
+}
+
+.momentImageWrap {
+    width: 100%;
+
+    flex:
+        1 1 auto;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+    background: #e9e9e9;
+}
+
+.momentImage {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    cursor: pointer;
+}
+
+.momentInfo {
+    flex:
+        0 0 auto;
+
+    padding:
+        5px 7px 3px;
+}
+
+.momentUploader {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #173d72;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.momentDate {
+    margin-top: 2px;
+
+    font-size: 8px;
+
+    color: #777;
+
+    line-height: 1.15;
+}
+
+.momentActions {
+    flex:
+        0 0 auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 5px;
+
+    padding:
+        2px 6px 5px;
+}
+
+.momentLike,
+.momentDownload {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 24px;
+
+    padding:
+        3px 5px;
+
+    border-radius: 8px;
+
+    background: #f1f3f7;
+
+    color: #173d72;
+
+    font-size: 9px;
+}
+
+.momentLike.liked {
+    color: #d92929;
+}
+
+.momentDownload {
+    text-decoration: none;
+}
+
+.momentEmpty {
+    visibility: hidden;
+}
+
+.momentPageIndicator {
+    margin-top: 5px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #173d72;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MOMEN UPLOAD
+========================================================= */
+
+.momentUploadBox {
+    background:
+        rgba(255,255,255,.95);
+
+    border-radius: 18px;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+}
+
+.momentUploadBox input,
+.momentUploadBox button {
+    width: 100%;
+}
+
+
+/* =========================================================
+   UCAPAN
+   KOTAK IKUT PANJANG MESEJ
+========================================================= */
+
+#page9 {
+    position: relative;
+}
+
+#wishList {
+    position: absolute;
+
+    left: 0;
+    top: 29%;
+
+    width: 100%;
+    height: 56%;
+
+    z-index: 30;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding:
+        0 8% 12px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+}
+
+#wishList::-webkit-scrollbar {
+    display: none;
+}
+
+.wishCard {
+    width: 100%;
+
+    height: auto;
+    min-height: 0;
+
+    flex:
+        0 0 auto;
+
+    padding:
+        9px 12px 7px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,.08);
+
+    color: #555;
+
+    overflow: visible;
+}
+
+.wishHeader {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    margin-bottom: 5px;
+}
+
+.wishName {
+    color: #173d72;
+
+    font-size: 14px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+.wishDate {
+    flex-shrink: 0;
+
+    color: #858b96;
+
+    font-size: 9px;
+
+    line-height: 1.2;
+
+    text-align: right;
+}
+
+.wishMessage {
+    width: 100%;
+
+    margin: 0;
+
+    color: #59606d;
+
+    font-size: 12px;
+
+    line-height: 1.35;
+
+    text-align: center;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+
+    word-break: break-word;
+}
+
+.wishActions {
+    display: flex;
+
+    align-items: center;
+
+    margin-top: 5px;
+}
+
+.wishLike {
+    padding:
+        2px 5px;
+
+    background: transparent;
+
+    color: #173d72;
+
+    font-size: 12px;
+
+    border-radius: 8px;
+}
+
+.wishLike.liked {
+    color: #e3262e;
+}
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
+
+#bottomNav {
+    position: fixed;
+
+    left: 50%;
+    bottom: 16px;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        calc(100% - 72px);
+
+    max-width: 560px;
+
+    z-index: 1500;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    background:
+        rgba(255,255,255,.96);
+
+    border-radius: 24px;
+
+    padding: 3px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.18);
+
+    backdrop-filter:
+        blur(12px);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+#bottomNav.hidden {
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, 120px);
+}
+
+#bottomNav > button,
+.navBtn {
+    min-width: 0;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding:
+        4px 1px;
+
+    background: transparent;
+
+    color: #727a89;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 2px;
+
+    font-size: 8px;
+
+    line-height: 1.05;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+}
+
+#bottomNav > button i,
+.navBtn i {
+    font-size: 16px;
+
+    line-height: 1;
+}
+
+#bottomNav > button.active,
+.navBtn.active {
+    background: #294c9b;
+
+    color: white;
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+#musicBtn {
+    position: fixed;
+
+    right: 18px;
+    bottom: 82px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #294c9b;
+
+    color: white;
+
+    z-index: 1600;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(0,0,0,.25);
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+#musicBtn.playing {
+    animation:
+        musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================================
+   BOTTOM SHEET
+========================================================= */
+
+#sheetOverlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.42);
+
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .25s ease;
+}
+
+#sheetOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#bottomSheet {
+    position: fixed;
+
+    left: 50%;
+    bottom: 0;
+
+    transform:
+        translate(-50%, 110%);
+
+    width:
+        min(100%, 680px);
+
+    max-height: 88dvh;
+
+    z-index: 2100;
+
+    background: white;
+
+    border-radius:
+        28px 28px 0 0;
+
+    overflow-y: auto;
+
+    transition:
+        transform .3s ease;
+
+    padding: 20px;
+}
+
+#bottomSheet.show {
+    transform:
+        translate(-50%, 0);
+}
+
+.sheetHandle {
+    width: 45px;
+    height: 5px;
+
+    margin:
+        0 auto 18px;
+
+    background: #ddd;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+#toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 100px;
+
+    transform:
+        translateX(-50%)
+        translateY(20px);
+
+    z-index: 3000;
+
+    background:
+        rgba(20,30,50,.95);
+
+    color: white;
+
+    padding:
+        11px 17px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .25s ease;
+
+    max-width:
+        calc(100% - 40px);
+
+    text-align: center;
+}
+
+#toast.show {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+#lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 4000;
+
+    background:
+        rgba(0,0,0,.92);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox.show {
+    display: flex;
+}
+
+#lightboxImage {
+    max-width: 94vw;
+    max-height: 88vh;
+
+    object-fit: contain;
+}
+
+.lightboxClose,
+.lightboxPrev,
+.lightboxNext {
+    position: absolute;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.15);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.lightboxClose {
+    top: 20px;
+    right: 20px;
+}
+
+.lightboxPrev {
+    left: 15px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+.lightboxNext {
+    right: 15px;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    width: 100%;
+    max-width: 560px;
+
+    margin: 0 auto;
+
+    padding:
+        35px 20px 100px;
+
+    text-align: center;
+
+    color: white;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        width: 100%;
+        max-width: 560px;
+    }
+
+
+    /* COUNTDOWN */
+
+    .timeCard {
+        width: 27%;
+        height: 19%;
+    }
+
+    .timeCard:nth-child(1) {
+        left: 23.5%;
+        top: 31.5%;
+    }
+
+    .timeCard:nth-child(2) {
+        left: 49.5%;
+        top: 31.5%;
+    }
+
+    .timeCard:nth-child(3) {
+        left: 23.5%;
+        top: 58.5%;
+    }
+
+    .timeCard:nth-child(4) {
+        left: 49.5%;
+        top: 58.5%;
+    }
+
+    .timeCard span,
+    .timeCard strong {
+        font-size:
+            clamp(25px, 7.5vw, 42px);
+    }
+
+    .timeCard small {
+        font-size:
+            clamp(7px, 2vw, 12px);
+
+        margin-top: 4px;
+    }
+
+
+    /* RSVP */
+
+    #rsvpList {
+        top: 19%;
+        height: 75%;
+
+        padding:
+            0 8% 7px;
+
+        gap: 7px;
+    }
+
+    .rsvpCard {
+        flex:
+            0 0 calc((100% - 28px) / 5);
+
+        padding:
+            7px 13px;
+
+        border-radius: 15px;
+    }
+
+    .rsvpName {
+        font-size: 14px;
+    }
+
+    .rsvpInfo {
+        font-size: 10px;
+        margin-top: 2px;
+    }
+
+
+    /* MOMEN */
+
+    #momentGallery {
+        left: 7%;
+        top: 24%;
+
+        width: 86%;
+        height: 64%;
+    }
+
+    .momentSlide {
+        gap: 8px;
+    }
+
+    .momentUploader {
+        font-size: 11px;
+    }
+
+    .momentDate {
+        font-size: 8px;
+    }
+
+    .momentLike,
+    .momentDownload {
+        font-size: 9px;
+        padding:
+            3px 5px;
+    }
+
+
+    /* UCAPAN */
+
+    #wishList {
+        top: 29%;
+        height: 56%;
+    }
+
+    .wishCard {
+        padding:
+            9px 12px 7px;
+
+        border-radius: 16px;
+    }
+
+    .wishMessage {
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+
+    /* NAV */
+
+    #bottomNav {
+        width:
+            calc(100% - 72px);
+
+        bottom: 16px;
+    }
+
+    #bottomNav > button,
+    .navBtn {
+        font-size: 8px;
+
+        padding:
+            4px 1px;
+
+        gap: 2px;
+    }
+
+    #bottomNav > button i,
+    .navBtn i {
+        font-size: 16px;
+    }
+
+
+    /* MUSIC */
+
+    #musicBtn {
+        right: 18px;
+
+        bottom: 82px;
+
+        width: 52px;
+        height: 52px;
+
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    #bottomNav {
+        width:
+            calc(100% - 48px);
+
+        bottom: 14px;
+    }
+
+    #bottomNav > button,
+    .navBtn {
+        font-size: 7px;
+
+        padding:
+            3px 0;
+    }
+
+    #bottomNav > button i,
+    .navBtn i {
+        font-size: 15px;
+    }
+
+    .momentSlide {
+        gap: 7px;
+    }
+
+    .rsvpCard {
+        padding:
+            6px 11px;
+    }
+
+    .rsvpName {
+        font-size: 13px;
+    }
+
+    .rsvpInfo {
+        font-size: 9px;
+    }
+}
